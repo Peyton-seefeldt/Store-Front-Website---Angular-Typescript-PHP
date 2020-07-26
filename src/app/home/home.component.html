@@ -1,0 +1,30 @@
+<div class='container-fluid'>
+  <div class='row'>
+    <div class='col-12' [formGroup]='myFormModel'>
+  <h4>Uww Course Catalog</h4>
+  <p><mat-form-field class='mat-field'>
+    <mat-select placeholder="Search category:" formControlName="searchKey">
+      <mat-option *ngFor='let s of searchKeys' [value]='s.id'>
+        {{s.label}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field class='mat-field'>
+      <input matInput placeholder="*Enter search value" formControlName="searchValue" (keyup)='searchValues()'>
+    </mat-form-field>
+</p>
+</div>
+<table class='table' *ngIf='courseList&&courseList.length>0'>
+  <thead>
+    <tr><td>Course</td><td>Title</td><td>Description</td></tr>
+  </thead>
+  <tbody>
+    <tr *ngFor='let s of courseList'>
+      <td>{{s.subject}} {{s.number}}</td>
+      <td>{{s.title}}</td>
+      <td>{{s.description}}</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>

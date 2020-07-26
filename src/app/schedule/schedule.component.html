@@ -1,0 +1,31 @@
+<div class='container-fluid'>
+  <div class='row'>
+    <div class='col-12' [formGroup]='myFormModel'>
+  <h4>Schedule your classes by Location, Teacher, Or Subject</h4>
+  <p><mat-form-field class='mat-field'>
+    <mat-select placeholder="Search category:" formControlName="searchKey">
+      <mat-option *ngFor='let s of searchKeys' [value]='s.id'>
+        {{s.label}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field class='mat-field'>
+      <input matInput placeholder="*Enter search value" formControlName="searchValue" (keyup)='searchValues()'>
+    </mat-form-field>
+</p>
+</div>
+<table class='table' *ngIf='LocationList&&LocationList.length>0'>
+  <thead>
+    <tr><td>Course</td><td>Instructor</td><td>Time</td><td>Location</td></tr>
+  </thead>
+  <tbody>
+    <tr *ngFor='let l of LocationList'>
+      <td>{{l.course}}</td>
+      <td>{{l.instructor}}</td>
+      <td>{{l.display_time}}</td>
+      <td>{{l.location}}</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>

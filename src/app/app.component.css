@@ -1,0 +1,11 @@
+.banner {
+    background-color: rgba(50, 50, 150, 0.877);
+}
+.navbar-dark .navbar-nav .nav-link {
+    color: #eee;
+}
+
+li.nav-item a:hover {
+    font-weight: bold;
+
+}
